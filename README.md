@@ -27,9 +27,25 @@ The `contact_send.php` looks for the phpmailer at the same level:
 
 You can check the config file in [`./src/config.php`](./src/config.php) for details.
 
+I recommend setting up a separate Gmail account for the contact form 
+instead of using your main email account.
+
+Additionally, you should generate an app password for the contact form:
+https://myaccount.google.com/apppasswords
+
+The app password should be set in the `CONTACT_FORM_SMTP_PASSWORD` 
+in the [`./src/config.php`](./src/config.php). 
+
+Using an app password is not recommended from a security point of view, 
+which is why we create a separate Gmail account.
+
+Use the same email for both `CONTACT_FORM_SMTP_USERNAME` and `CONTACT_FORM_TO_EMAIL` 
+to keep it simple and ensure all messages from this contact form are safely received 
+in this dedicated Gmail account.
+
 ## Sample HTML/CSS/JS Form Code
 
-Check the [`./test/...`](./test) for simple HTML/CSS/JS code for the contact form usage,
+Check the [`./test/...`](./test) for a sample HTML/CSS/JS code for the contact form usage,
 style and validation.
 
 You must set your HTTP server URLs in the [`./test/contact-form.html`](./test/contact-form.html).
