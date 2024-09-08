@@ -47,8 +47,7 @@ instead of using your main email account.
 Additionally, you should generate an app password for the contact form:
 https://myaccount.google.com/apppasswords
 
-The app password should be set in the `CONTACT_FORM_SMTP_PASSWORD` 
-in the [`./src/config.php`](./src/config.php). 
+The app password should be set in the `CONTACT_FORM_SMTP_PASSWORD`. 
 
 Using an app password is not recommended from a security point of view, 
 which is why we create a separate Gmail account.
@@ -56,6 +55,22 @@ which is why we create a separate Gmail account.
 Use the same email for both `CONTACT_FORM_SMTP_USERNAME` and `CONTACT_FORM_TO_EMAIL` 
 to keep it simple and ensure all messages from this contact form are safely received 
 in this dedicated Gmail account.
+
+The [`./src/config.php`](./src/config.php) contains some environment variables 
+that are not directly supported by PHP. However, they are utilized in a GitHub Action 
+to set variables and secrets from the environment.
+
+To achieve this, use the following code based on 
+[`envsubst`](https://www.gnu.org/software/gettext/manual/html_node/envsubst-Invocation.html) 
+in a GitHub Action shell script:
+
+```bash
+CONFIG_FILE="${LOCAL_SOURCE_DIR}/contact_form/config.php"
+
+envsubst < "${CONFIG_FILE}" > "${CONFIG_FILE}.tmp"
+
+mv "${CONFIG_FILE}.tmp" "${CONFIG_FILE}"
+```
 
 ## Sample Form Code
 
