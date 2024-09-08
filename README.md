@@ -27,7 +27,7 @@ The `contact_send.php` looks for the phpmailer at the same level:
 
 You can check the config file in [`./src/config.php`](./src/config.php) for details.
 
-## Testing
+## Sample HTML/CSS/JS Form Code
 
 Check the [`./test/...`](./test) for simple HTML/CSS/JS code for the contact form usage,
 style and validation.
