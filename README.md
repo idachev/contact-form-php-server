@@ -20,6 +20,8 @@ It needs at least PHP 5.5 version.
 * Simple PHP code for sending emails based on PHPMailer
 * Easy to deploy to a cPanel hosting
 * Easy to configure
+* Restrict name, and message min and max length
+* Restrict email to be a valid email
 
 ## Deployment
 
