@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Language" content="en">
+  <title>Contact Form Test HTML Page</title>
+
+  <link rel="stylesheet" href="./contact-form.css">
+</head>
+
+<body>
+<article>
+  <div class="page">
+    <div class="page_container">
+      <h1>Welcome to Contact Form Test HTML Page</h1>
+      <div class="page-image">
+        <img class="lazy loaded" alt="Контакти" data-ll-status="loaded" src="./contact.jpg">
+      </div>
+
+      <div class="form-box">
+        <div class="contact-head">
+          <p class="contact-description">Fill the form and send</p>
+        </div>
+        <!-- If not relative replace with your website contact_form URL -->
+        <form class="form" action="/contact_from/contact_send.php"
+              method="POST">
+          <!-- Replace with your website success URL -->
+          <!-- If not relative must start with URL prefix in redirect_url_prefix from config.php -->
+          <input type="hidden" name="redirect_url" value="/contact/success/">
+
+          <div class="form__group">
+            <label class="form__label screen-reader-text" for="form-name">Your Name</label>
+            <input class="form__input" id="form-name" type="text" name="name"
+                   placeholder="Your name...">
+          </div>
+
+          <div class="form__group">
+            <label class="form__label screen-reader-text" for="form-email">Your Email</label>
+            <input class="form__input" id="form-email" type="email" name="email"
+                   placeholder="Your email...">
+          </div>
+
+          <div class="form__group">
+            <label class="form__label screen-reader-text" for="form-text">Your Message</label>
+            <textarea class="form__input" id="form-text" name="message" rows="8"
+                      placeholder="Your message..."></textarea>
+          </div>
+
+          <div class="form__group form__group--center">
+            <button class="button" type="submit">Send Message</button>
+            <div class="loader" id="contact-form-loader"></div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- The form validation supports translation to one additional language
+           depending on Content-Language meta -->
+      <script src="./contact-form-validation.js"></script>
+
+    </div>
+  </div>
+</article>
+
+</body>
+</html>
