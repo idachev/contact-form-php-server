@@ -12,7 +12,7 @@ It needs at least PHP 5.5 version.
 * [Features](#features)
 * [Deployment](#deployment)
 * [Configuration & Security](#configuration--security)
-* [Sample Form Code](#sample-htmlcssjs-form-code)
+* [Sample Form Code](#sample-form-code)
 * [Credits](#credits)
 
 ## Features
