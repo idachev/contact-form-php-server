@@ -86,6 +86,24 @@ it is at least 50 symbols.
 
 <img src="./test/test-form-view.jpg" alt="Test Form View"></img>
 
+The email that will be received:
+```text
+From: My Contact Form Email Account <my.contact.form@gmail.com>
+Date: Sun, Sep 8, 2024, 07:44
+Subject: MyServer.COM - Message from Ivan Dachev
+To: <my.contact.form@gmail.com>
+
+MyServer.COM Contact Form Submission
+Name: Ivan Dachev
+
+Email: my.email@test.com
+
+Message: My lovely test message to contact you.
+```
+
+The content of the email is in HTML format, to change it edit
+the [`contact_send.php`](./src/contact_send.php) file.
+
 ## Credits
 
 * The main hard of the code is using https://github.com/PHPMailer/PHPMailer

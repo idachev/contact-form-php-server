@@ -10,11 +10,17 @@ return [
     'smtp_port' => 587,
     # The email address to which will send emails
     'to_email' => '${CONTACT_FORM_TO_EMAIL}',
-    # URL Prefix to check for redirect on success or failure
-    'redirect_url_prefix' => 'https://myserver.com/',
     # Will be included in the email subject
     'site_title' => 'test.COM',
-    # A list of trusted domains, remove the localhost when deploying
-    'trusted_domains' => ['myserver.com', 'localhost'],
+    # A list of allowed origins, remove the localhost when deploying
+    'allowed_origins' => ['https://myserver.com', 'http://localhost:4000'],
+    # The regular expression to validate the email address
+    'email_regexp' => '/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i',
+    # The min and max length of the name field
+    'min_name_length' => 2,
+    'max_name_length' => 100,
+    # The min and max length of the message field
+    'min_message_length' => 50,
+    'max_message_length' => 8000
 ];
 ?>
