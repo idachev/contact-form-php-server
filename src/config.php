@@ -14,8 +14,6 @@ return [
     'site_title' => 'test.COM',
     # A list of allowed origins, remove the localhost when deploying
     'allowed_origins' => ['https://myserver.com', 'http://localhost:4000'],
-    # The regular expression to validate the email address
-    'email_regexp' => '/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i',
     # The min and max length of the name field
     'min_name_length' => 2,
     'max_name_length' => 200,
