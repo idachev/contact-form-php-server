@@ -21,6 +21,6 @@ return [
     'max_name_length' => 200,
     # The min and max length of the message field
     'min_message_length' => 50,
-    'max_message_length' => 8000
+    'max_message_length' => 8000,
 ];
 ?>
