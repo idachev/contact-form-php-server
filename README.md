@@ -9,6 +9,18 @@ and widely used cPanel hosting where PHP is supported.
 
 It needs at least PHP 5.5 version.
 
+* [Features](#features)
+* [Deployment](#deployment)
+* [Configuration & Security](#configuration--security)
+* [Sample Form Code](#sample-htmlcssjs-form-code)
+* [Credits](#credits)
+
+## Features
+
+* Simple PHP code for sending emails based on PHPMailer
+* Easy to deploy to a cPanel hosting
+* Easy to configure
+
 ## Deployment
 
 The contact form php code uses [PHPMailer](https://github.com/PHPMailer/PHPMailer) please download its source 
@@ -24,6 +36,8 @@ The `contact_send.php` looks for the phpmailer at the same level:
 ./config.php
 ./contact_send.php
 ```
+
+## Configuration & Security
 
 You can check the config file in [`./src/config.php`](./src/config.php) for details.
 
@@ -43,7 +57,7 @@ Use the same email for both `CONTACT_FORM_SMTP_USERNAME` and `CONTACT_FORM_TO_EM
 to keep it simple and ensure all messages from this contact form are safely received 
 in this dedicated Gmail account.
 
-## Sample HTML/CSS/JS Form Code
+## Sample Form Code
 
 Check the [`./test/...`](./test) for a sample HTML/CSS/JS code for the contact form usage,
 style and validation.
