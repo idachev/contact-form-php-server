@@ -1,11 +1,59 @@
+let submitWasMade = false;
+
+document.querySelectorAll('.form__input').forEach(input => {
+  input.addEventListener('input', () => {
+    if (submitWasMade) {
+      validateContactForm();
+    }
+  });
+});
+
 document.querySelector('.form').addEventListener('submit', function (event) {
+
+  submitWasMade = true;
+
   event.preventDefault();
 
+  let isValid = validateContactForm();
+
+  if (isValid) {
+    const redirect_url = document.getElementById(
+        'form-redirect_url').value.trim();
+
+    showLoader();
+
+    fetch(event.target.action, {
+      method: 'POST',
+      body: new FormData(event.target),
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('data', data);
+
+      hideLoader();
+
+      if (data.error !== '') {
+        showError('form-submit-holder', data.error);
+      } else {
+        window.location.href = redirect_url;
+      }
+    })
+    .catch(error => {
+      hideLoader();
+
+      showError('form-submit-holder',
+          'An error occurred while sending the form: ' + error);
+    });
+  }
+});
+
+function validateContactForm() {
   const name = document.getElementById('form-name').value.trim();
   const email = document.getElementById('form-email').value.trim();
   const message = document.getElementById('form-text').value.trim();
-  const redirect_url = document.getElementById(
-      'form-redirect_url').value.trim();
 
   let isValid = true;
 
@@ -52,38 +100,8 @@ document.querySelector('.form').addEventListener('submit', function (event) {
         + ' characters or longer than ' + MAX_MESSAGE_LENGTH + ' characters');
   }
 
-  console.log('isValid', isValid);
-  if (isValid) {
-
-    showLoader();
-
-    fetch(event.target.action, {
-      method: 'POST',
-      body: new FormData(event.target),
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('data', data);
-
-      hideLoader();
-
-      if (data.error !== '') {
-        showError('form-submit-holder', data.error);
-      } else {
-        window.location.href = redirect_url;
-      }
-    })
-    .catch(error => {
-      hideLoader();
-
-      showError('form-submit-holder',
-          'An error occurred while sending the form: ' + error);
-    });
-  }
-});
+  return isValid;
+}
 
 function showLoader() {
   document.getElementById('contact-form-loader').style.display = 'grid';
